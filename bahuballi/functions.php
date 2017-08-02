@@ -110,6 +110,20 @@ function bahuballi_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	//Footer widget areas
+	$widget_areas = get_theme_mod('footer_widget_areas', '3');
+	for ($i=1; $i<=$widget_areas; $i++) {
+		register_sidebar( array(
+			'name'          => __( 'Footer ', 'bahuballi' ) . $i,
+			'id'            => 'footer-' . $i,
+			'description'   => '',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+	}
 }
 add_action( 'widgets_init', 'bahuballi_widgets_init' );
 
